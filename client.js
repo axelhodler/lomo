@@ -2,28 +2,36 @@ const marketCaps = {"car_companies":[{"name":"Daimler","market_capitalization_in
 const carcompanies = marketCaps.car_companies
 const smileys = document.getElementById("smileys")
 
-const renderGuessedRight = () => {
-  const smiley = document.createElement("span")
-  smiley.innerHTML = "✅"
-  smileys.appendChild(smiley)
+const renderSuccessMessage = (message) => {
   const notification = document.createElement("div")
   const infoBox = document.getElementById("info")
   infoBox.innerHTML = ""
   notification.setAttribute("class", "alert alert-success")
-  notification.innerHTML = `Yes. The marketcap of ${carcompanies[0].name} is ${carcompanies[0].market_capitalization_in_bn} bn`
+  notification.innerHTML = message
   infoBox.appendChild(notification)
+}
+
+const renderFailMessage = (message) => {
+  const notification = document.createElement("div")
+  const infoBox = document.getElementById("info")
+  infoBox.innerHTML = ""
+  notification.setAttribute("class", "alert alert-danger")
+  notification.innerHTML = message
+  infoBox.appendChild(notification)
+}
+
+const renderGuessedRight = () => {
+  const smiley = document.createElement("span")
+  smiley.innerHTML = "✅"
+  smileys.appendChild(smiley)
+  renderSuccessMessage(`Yes. The marketcap of ${carcompanies[0].name} is ${carcompanies[0].market_capitalization_in_bn} bn`)
 }
 
 const renderGuessedWrong = () => {
   const smiley = document.createElement("span")
   smiley.innerHTML = "❌"
   smileys.appendChild(smiley)
-  const notification = document.createElement("div")
-  const infoBox = document.getElementById("info")
-  infoBox.innerHTML = ""
-  notification.setAttribute("class", "alert alert-danger")
-  notification.innerHTML = `No. The marketcap of ${carcompanies[0].name} is ${carcompanies[0].market_capitalization_in_bn} bn`
-  infoBox.appendChild(notification)
+  renderFailMessage(`No. The marketcap of ${carcompanies[0].name} is ${carcompanies[0].market_capitalization_in_bn} bn`)
 }
 
 const renderMarketcap = () => {
