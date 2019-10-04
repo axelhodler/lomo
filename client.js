@@ -2,10 +2,16 @@ const marketCaps = {"car_companies":[{"name":"Daimler","market_capitalization_in
 const carcompanies = marketCaps.car_companies
 const smileys = document.getElementById("smileys")
 
+const clearChildren = (node) => {
+  while (node.firstChild) {
+    node.removeChild(node.firstChild);
+  }
+}
+
 const renderSuccessMessage = (message) => {
   const notification = document.createElement("div")
   const infoBox = document.getElementById("info")
-  infoBox.innerHTML = ""
+  clearChildren(infoBox)
   notification.setAttribute("class", "alert alert-success")
   notification.innerHTML = message
   infoBox.appendChild(notification)
@@ -14,7 +20,7 @@ const renderSuccessMessage = (message) => {
 const renderFailMessage = (message) => {
   const notification = document.createElement("div")
   const infoBox = document.getElementById("info")
-  infoBox.innerHTML = ""
+  clearChildren(infoBox)
   notification.setAttribute("class", "alert alert-danger")
   notification.innerHTML = message
   infoBox.appendChild(notification)
@@ -39,7 +45,7 @@ const renderMarketcap = () => {
   const capNameText = document.createElement("div")
   const nextCompany = carcompanies[0]
   capNameText.innerHTML = nextCompany.name
-  capName.innerHTML = ""
+  clearChildren(capName)
   capName.appendChild(capNameText)
   const capAnchor = document.getElementById("currentCapAnchor")
   const capAnchorText = document.createElement("div")
