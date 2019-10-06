@@ -12,6 +12,7 @@ const renderSuccessMessage = (message) => {
   const notification = document.createElement("div")
   const infoBox = document.getElementById("info")
   clearChildren(infoBox)
+  notification.setAttribute("id", "notification")
   notification.setAttribute("class", "alert alert-success")
   notification.innerHTML = message
   infoBox.appendChild(notification)
@@ -21,6 +22,7 @@ const renderFailMessage = (message) => {
   const notification = document.createElement("div")
   const infoBox = document.getElementById("info")
   clearChildren(infoBox)
+  notification.setAttribute("id", "notification")
   notification.setAttribute("class", "alert alert-danger")
   notification.innerHTML = message
   infoBox.appendChild(notification)
