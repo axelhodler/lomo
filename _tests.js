@@ -7,8 +7,8 @@ const prepareCanvas = () => {
   canvas.appendChild(component)
 }
 
-const removeCanvas = () => {
-  document.getElementById("canvas").remove()
+const clearCanvasContents = () => {
+  document.getElementById("canvas").innerHTML = ""
 }
 
 QUnit.test("rendering success message", (assert) => {
@@ -17,6 +17,21 @@ QUnit.test("rendering success message", (assert) => {
 
   renderSuccessMessage(message)
 
-  assert.ok(document.getElementById("notification").innerHTML === message)
-  removeCanvas()
+  const notification = document.getElementById("notification")
+  assert.ok(notification.getAttribute("class").includes("alert-success"))
+  assert.ok(notification.innerHTML === message)
+  clearCanvasContents()
+});
+
+QUnit.test("rendering fail message", (assert) => {
+  prepareCanvas()
+  const message = "fail"
+
+  renderFailMessage(message)
+
+  const notification = document.getElementById("notification")
+
+  assert.ok(notification.getAttribute("class").includes("alert-danger"))
+  assert.ok(notification.innerHTML === message)
+  clearCanvasContents()
 });
