@@ -12,12 +12,20 @@ const clearCanvasContents = () => {
 }
 
 class NotificationPageObject {
-  // obj should contain knowledge on bootstrap classes
   _element = document.getElementById("notification")
 
-  hasClass(clazz) {
+  _hasClass(clazz) {
     return this._element.getAttribute("class").includes(clazz)
   }
+
+  displayedAsFailure() {
+    return this._hasClass("alert-danger")
+  }
+
+  displayedAsSuccess() {
+    return this._hasClass("alert-success")
+  }
+
   hasInnerHTML(html) {
     return this._element.innerHTML === html
   }
@@ -30,7 +38,7 @@ QUnit.test("rendering success message", (assert) => {
   renderSuccessMessage(message)
 
   const notification = new NotificationPageObject()
-  assert.ok(notification.hasClass("alert-success"))
+  assert.ok(notification.displayedAsSuccess())
   assert.ok(notification.hasInnerHTML(message))
   clearCanvasContents()
 });
@@ -42,7 +50,7 @@ QUnit.test("rendering fail message", (assert) => {
   renderFailMessage(message)
 
   const notification = new NotificationPageObject()
-  assert.ok(notification.hasClass("alert-danger"))
+  assert.ok(notification.displayedAsFailure())
   assert.ok(notification.hasInnerHTML(message))
   clearCanvasContents()
 });
