@@ -32,14 +32,20 @@ const renderGuessedRight = () => {
   const smiley = document.createElement("span")
   smiley.innerHTML = "✅"
   smileys.appendChild(smiley)
-  renderSuccessMessage(`Yes. The marketcap of ${carcompanies[0].name} is ${carcompanies[0].market_capitalization_in_bn} bn`)
+  renderSuccessMessage(`Yes. ${buildMessage()}`)
+}
+
+const buildMessage = () => {
+  let company = carcompanies[0]
+  return `The marketcap of ${company.name} is <b>${company.market_capitalization_in_bn}bn </b> (Displayed anchor was ${company.market_capitalization_anchor_in_bn})`
 }
 
 const renderGuessedWrong = () => {
   const smiley = document.createElement("span")
   smiley.innerHTML = "❌"
   smileys.appendChild(smiley)
-  renderFailMessage(`No. The marketcap of ${carcompanies[0].name} is ${carcompanies[0].market_capitalization_in_bn} bn`)
+  let company = carcompanies[0]
+  renderFailMessage(`No. ${buildMessage()}`)
 }
 
 const renderMarketcap = () => {
