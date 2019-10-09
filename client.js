@@ -1,5 +1,3 @@
-const marketCaps = {"car_companies":[{"name":"Daimler","market_capitalization_in_bn":50.96,"market_capitalization_anchor_in_bn":57.075},{"name":"Volkswagen","market_capitalization_in_bn":81.24,"market_capitalization_anchor_in_bn":91.801},{"name":"BMW","market_capitalization_in_bn":42.2,"market_capitalization_anchor_in_bn":37.558},{"name":"Toyota","market_capitalization_in_bn":223.11,"market_capitalization_anchor_in_bn":249.883},{"name":"Ford","market_capitalization_in_bn":36.2,"market_capitalization_anchor_in_bn":40.906},{"name":"General Motors","market_capitalization_in_bn":53.94,"market_capitalization_anchor_in_bn":46.388},{"name":"Ferrari","market_capitalization_in_bn":28.93,"market_capitalization_anchor_in_bn":33.27},{"name":"Fiat Chrysler Automobiles","market_capitalization_in_bn":19.29,"market_capitalization_anchor_in_bn":16.396},{"name":"Tesla","market_capitalization_in_bn":44.17,"market_capitalization_anchor_in_bn":39.311}]}
-const carcompanies = marketCaps.car_companies
 const smileys = document.getElementById("smileys")
 
 const clearChildren = (node) => {
