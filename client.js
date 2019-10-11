@@ -30,12 +30,14 @@ const renderGuessedRight = () => {
   const smiley = document.createElement("span")
   smiley.innerHTML = "✅"
   smileys.appendChild(smiley)
-  renderSuccessMessage(`Yes. ${buildMessage()}`)
+  renderSuccessMessage(`${buildMessage()}`)
 }
 
 const buildMessage = () => {
   let company = carcompanies[0]
-  return `The marketcap of ${company.name} is <b>${company.market_capitalization_in_bn}bn </b> (Displayed anchor was ${company.market_capitalization_anchor_in_bn})`
+  document.getElementById("info").style.visibility = "visible"
+  document.getElementById("currentCapAnchor").style.textDecoration = "line-through"
+  return `It's <b>${company.market_capitalization_in_bn} billions</b>`
 }
 
 const renderGuessedWrong = () => {
@@ -62,9 +64,13 @@ const renderMarketcap = () => {
 
 const checkForEnd = () => {
   if (carcompanies.length === 1) {
-    document.getElementById("game").innerHTML = "Thanks for playing"
-  } else {
-    carcompanies.shift()
-    renderMarketcap()
+     document.getElementById("game").innerHTML = "Thanks for playing"
   }
+}
+
+const nextCap = () => {
+  document.getElementById("info").style.visibility = "hidden"
+  carcompanies.shift()
+  document.getElementById("currentCapAnchor").style.textDecoration = "none"
+  renderMarketcap()
 }
