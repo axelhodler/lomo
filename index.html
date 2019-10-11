@@ -23,48 +23,49 @@
 </head>
 <body>
 <div class="container">
-  <header>
-    <h1>
-      More or less?
-    </h1>
-  </header>
+  <div class="col text-center">
+    <header>
+      <h1>
+        More or less?
+      </h1>
+    </header>
 
 
-  <main>
-    <div id="game">
-      <div>
-        <div class="card text-center" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title" id="currentCapName"></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Marketcap</h6>
-            <div style="font-weight: bold;" id="currentCapAnchor"></div>
-            <div>
-              <div id="info">
-                <div class="alert alert-primary">
-                  Is it more or less?
+    <main>
+      <div id="game">
+        <div>
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title" id="currentCapName"></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Marketcap</h6>
+              <div style="font-weight: bold;" id="currentCapAnchor"></div>
+              <div>
+                <div id="info">
+                  <div class="alert alert-primary">
+                    Is it more or less?
+                  </div>
                 </div>
+                <div id="decisions">
+                  <button type="button" class="btn btn-light" id="up">
+                    ⬆️ More!
+                  </button>
+                  <button type="button" class="btn btn-light" id="down">
+                    ⬇️ Less!
+                  </button>
+                </div>
+                <button type="button" style="display: none" class="btn btn-primary" id="next">
+                  Next
+                </button>
               </div>
-            <div id="decisions">
-              <button type="button" class="btn btn-light" id="up">
-                ⬆️ More!
-              </button>
-              <button type="button" class="btn btn-light" id="down">
-                ⬇️ Less!
-              </button>
-            </div>
-            <button type="button" style="display: none" class="btn btn-primary" id="next">
-              Next
-            </button>
             </div>
           </div>
         </div>
+        <div>
+        </div>
       </div>
-      <div>
-      </div>
-    </div>
-    <hr>
-    <div id="smileys"></div>
-  </main>
+      <div id="smileys"></div>
+    </main>
+  </div>
 </div>
 </body>
 </html>
